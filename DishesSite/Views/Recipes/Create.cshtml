@@ -1,0 +1,45 @@
+﻿@model DishesSite.Models.Recipe
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Recipe</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Название_рецепта" class="control-label"></label>
+                <input asp-for="Название_рецепта" class="form-control" />
+                <span asp-validation-for="Название_рецепта" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Описание" class="control-label"></label>
+                <input asp-for="Описание" class="form-control" />
+                <span asp-validation-for="Описание" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ингредиенты" class="control-label"></label>
+                <input asp-for="Ингредиенты" class="form-control" />
+                <span asp-validation-for="Ингредиенты" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Инструкции" class="control-label"></label>
+                <input asp-for="Инструкции" class="form-control" />
+                <span asp-validation-for="Инструкции" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
