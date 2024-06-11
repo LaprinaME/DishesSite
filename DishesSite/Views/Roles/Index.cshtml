@@ -1,21 +1,91 @@
 ﻿@model IEnumerable<DishesSite.Models.Roles>
 
-<h1>Список ролей</h1>
-
-<table class="table">
-    <thead>
-        <tr>
-            <th>Код роли</th>
-            <th>Название роли</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var role in Model)
-        {
-            <tr>
-                <td>@role.Код_роли</td>
-                <td>@role.Название_роли</td>
-            </tr>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список ролей</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url("../img/2.jpg");
+            color: #f1f1f1; /* Цвет текста */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
         }
-    </tbody>
-</table>
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #ff6347; /* Цвет заголовка */
+        }
+
+        .table-container {
+            width: 80%;
+            background-color: rgba(0, 0, 0, 0.8); /* Фон контейнера таблицы */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Тень */
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0 auto;
+        }
+
+            .table thead {
+                background-color: #ff6347; /* Фон заголовков таблицы */
+            }
+
+                .table thead th {
+                    padding: 10px;
+                    color: #f1f1f1;
+                    text-align: left;
+                }
+
+            .table tbody tr {
+                border-bottom: 1px solid #444; /* Разделительная линия */
+            }
+
+                .table tbody tr:hover {
+                    background-color: #555; /* Фон строки при наведении */
+                }
+
+            .table tbody td {
+                padding: 10px;
+                color: #f1f1f1;
+            }
+    </style>
+</head>
+<body>
+    <div class="table-container">
+    <h1>Список ролей</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Код роли</th>
+                <th>Название роли</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var role in Model)
+            {
+                <tr>
+                    <td>@role.Код_роли</td>
+                    <td>@role.Название_роли</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    </div>
+    <div class="button-container">
+        <a href="/Home/Index" class="return-button">Домой</a>
+    </div>
+</body>
+</html>

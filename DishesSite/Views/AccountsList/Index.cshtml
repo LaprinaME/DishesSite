@@ -1,25 +1,108 @@
 ﻿@model IEnumerable<DishesSite.Models.Accounts>
 
-<h1>Список аккаунтов</h1>
-
-<table class="table">
-    <thead>
-        <tr>
-            <th>Код аккаунта</th>
-            <th>Логин</th>
-            <th>Пароль</th>
-            <th>Роль</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var account in Model)
-        {
-            <tr>
-                <td>@account.Код_аккаунта</td>
-                <td>@account.Логин</td>
-                <td>@account.Пароль</td>
-                <td>@account.Роли.Название_роли</td>
-            </tr>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Список аккаунтов</title>
+    <style>
+        body {
+            background-image: url("../img/back.jpg");
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
         }
-    </tbody>
-</table>
+
+        .container {
+            width: 80%;
+            margin: 50px auto;
+            background: #F0E68C;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #C41E3A;
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+            .table th, .table td {
+                border: 1px solid #EEE6A3;
+                padding: 10px;
+                text-align: left;
+            }
+
+            .table th {
+                background-color: #EEE6A3;
+                color: #333;
+            }
+
+            .table tr:nth-child(even) {
+                background-color: rgba(255, 255, 255, 0.1);
+            }
+
+            .table tr:hover {
+                background-color: rgba(255, 255, 255, 0.2);
+            }
+
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .return-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #C41E3A;
+            color: #333;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-align: center;
+            text-decoration: none;
+        }
+
+            .return-button:hover {
+                background-color: #555;
+            }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Список аккаунтов</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Код аккаунта</th>
+                    <th>Логин</th>
+                    <th>Пароль</th>
+                    <th>Роль</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var account in Model)
+                {
+                    <tr>
+                        <td>@account.Код_аккаунта</td>
+                        <td>@account.Логин</td>
+                        <td>@account.Пароль</td>
+                        <td>@account.Роли.Название_роли</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <div class="button-container">
+            <a href="/Home/Index" class="return-button">Домой</a>
+        </div>
+    </div>
+</body>
+</html>

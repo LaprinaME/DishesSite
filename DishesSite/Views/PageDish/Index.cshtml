@@ -5,50 +5,151 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Страница комментариев</title>
     <style>
-        /* Стили для отображения комментариев */
-        .comment {
-            margin-bottom: 20px;
-            border: 1px solid #ccc;
-            padding: 10px;
-            border-radius: 5px;
+        /* Стили для фона */
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url("../img/back.jpg"); /* Фоновое изображение */
+            background-size: cover; /* Растягиваем изображение на всю область */
+            background-repeat: no-repeat; /* Запрещаем повторение изображения */
+            background-attachment: fixed; /* Фиксируем фон */
+            color: #333; /* Цвет текста */
+            margin: 0;
+            padding: 0;
         }
+
+        /* Стили для контейнера статей */
+        .article-container {
+            max-width: 800px;
+            margin: 50px auto; /* Выравниваем по центру */
+            background-color: rgba(255, 255, 255, 0.9); /* Цвет фона контейнера */
+            border-radius: 10px;
+            padding: 20px; /* Внутренний отступ */
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Тень */
+        }
+
+        /* Стили для заголовков статей */
+        .article h2 {
+            color: #C41E3A; /* Цвет заголовка */
+        }
+
         /* Стили для изображений */
         .article img {
-            max-width: 100%;
-            height: auto;
+            max-width: 100%; /* Максимальная ширина изображения */
+            display: block; /* Блочный элемент */
+            margin: 0 auto; /* Выравниваем по центру */
+            border-radius: 10px; /* Закругляем углы */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Тень */
         }
+
+        /* Стили для комментариев */
+        .comment {
+            margin-bottom: 10px; /* Отступ между комментариями */
+            border: 1px solid #ccc; /* Граница */
+            padding: 10px; /* Внутренний отступ */
+            border-radius: 5px; /* Закругляем углы */
+            background-color: #fff; /* Цвет фона */
+        }
+
+        /* Стили для ввода комментария */
+        .comment-input {
+            width: 100%;
+            margin-top: 10px;
+            padding: 5px 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        /* Стили для кнопки добавления комментария */
+        .comment-button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #C41E3A; /* Цвет кнопки */
+            color: #fff; /* Цвет текста на кнопке */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease; /* Плавное изменение цвета при наведении */
+        }
+
+            .comment-button:hover {
+                background-color: #990024; /* Изменяем цвет кнопки при наведении */
+            }
+
+        .button-container {
+            margin-top: 20px;
+        }
+
+        .return-button {
+            background-color: #C41E3A;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+            text-align: center;
+            display: block;
+            text-transform: uppercase;
+        }
+
+            .return-button:hover {
+                background-color: #990024;
+            }
+
+        .anchor-icon {
+            position: absolute;
+            top: -40px; /* Adjusted for larger icon */
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 40px;
+            color: #EEE6A3;
+            cursor: pointer;
+        }
+        
     </style>
 </head>
 <body>
-    <h1>Статьи о блюдах</h1>
+    <div class="article-container">
+        <div class="article" id="article1">
+            <h2>Греческий салат</h2>
+            <p>Греческий салат - классическое блюдо средиземноморской кухни, известное своим ярким вкусом и свежими ингредиентами...</p>
+            <img src="../img/greek_salad.jpg" alt="Греческий салат">
+            <div id="comments-article1"></div>
+            <input type="text" id="comment-input-article1" class="comment-input" placeholder="Оставьте ваш комментарий">
+            <button class="comment-button" onclick="addComment('article1')">Добавить комментарий</button>
+        </div>
 
-    <div class="article" id="article1">
-        <h2>Греческий салат</h2>
-        <p>Греческий салат - классическое блюдо средиземноморской кухни, известное своим ярким вкусом и свежими ингредиентами...</p>
-        <img src="../img/greek_salad.jpg" alt="Греческий салат">
-        <div id="comments-article1"></div>
-        <input type="text" id="comment-input-article1" placeholder="Оставьте ваш комментарий">
-        <button onclick="addComment('article1')">Добавить комментарий</button>
+        <div class="article" id="article2">
+            <h2>Паста карбонара</h2>
+            <p>Паста карбонара - одно из самых популярных итальянских блюд, которое завоевало популярность за пределами Италии благодаря своему неповторимому вкусу и простоте приготовления...</p>
+            <img src="../img/pasta_carbonara.jpg" alt="Паста карбонара">
+            <div id="comments-article2"></div>
+            <input type="text" id="comment-input-article2" class="comment-input" placeholder="Оставьте ваш комментарий">
+            <button class="comment-button" onclick="addComment('article2')">Добавить комментарий</button>
+        </div>
+
+        <div class="article" id="article3">
+            <h2>Суши с лососем</h2>
+            <p>Суши с лососем - изысканное японское блюдо, пользующееся популярностью во многих странах мира благодаря своему нежному вкусу и простоте приготовления...</p>
+            <img src="../img/sushi_salmon.jpg" alt="Суши с лососем">
+            <div id="comments-article3"></div>
+            <input type="text" id="comment-input-article3" class="comment-input" placeholder="Оставьте ваш комментарий">
+            <button class="comment-button" onclick="addComment('article3')">Добавить комментарий</button>
+        </div>
+        <div class="button-container">
+            <a href="/Home/Index" class="return-button">Домой</a>
+        </div>
     </div>
-
-    <div class="article" id="article2">
-        <h2>Паста карбонара</h2>
-        <p>Паста карбонара - одно из самых популярных итальянских блюд, которое завоевало популярность за пределами Италии благодаря своему неповторимому вкусу и простоте приготовления...</p>
-        <img src="../img/pasta_carbonara.jpg" alt="Паста карбонара">
-        <div id="comments-article2"></div>
-        <input type="text" id="comment-input-article2" placeholder="Оставьте ваш комментарий">
-        <button onclick="addComment('article2')">Добавить комментарий</button>
-    </div>
-
-    <div class="article" id="article3">
-        <h2>Суши с лососем</h2>
-        <p>Суши с лососем - изысканное японское блюдо, пользующееся популярностью во многих странах мира благодаря своему нежному вкусу и простоте приготовления...</p>
-        <img src="../img/sushi_salmon.jpg" alt="Суши с лососем">
-        <div id="comments-article3"></div>
-        <input type="text" id="comment-input-article3" placeholder="Оставьте ваш комментарий">
-        <button onclick="addComment('article3')">Добавить комментарий</button>
-    </div>
-
+    <script>
+        // JavaScript function to scroll to the top of the page
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth' // Smooth scrolling behavior
+            });
+        }
+    </script>
     <script>
         // Функция для добавления комментария к статье
         function addComment(articleId) {

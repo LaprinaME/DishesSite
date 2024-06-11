@@ -1,25 +1,106 @@
 ﻿@model IEnumerable<DishesSite.Models.Dish>
 
-<h1>Список блюд</h1>
-
-<table class="table">
-    <thead>
-        <tr>
-            <th>Идентификатор</th>
-            <th>Название</th>
-            <th>Описание</th>
-            <th>Информация</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var dish in Model)
-        {
-            <tr>
-                <td>@dish.Блюдо_Id</td>
-                <td>@dish.Название_блюда</td>
-                <td>@dish.Описание</td>
-                <td>@dish.Информация</td>
-            </tr>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Список блюд</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #2b2b2b, #3e3e3e);
+            color: #EEE6A3;
+            margin: 0;
+            padding: 0;
         }
-    </tbody>
-</table>
+
+        h1 {
+            text-align: center;
+            color: #EEE6A3;
+            padding-top: 50px;
+        }
+
+        .table-container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: rgba(34, 34, 34, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            padding: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 12px;
+            border-bottom: 1px solid #555;
+            text-align: left;
+            color: #EEE6A3;
+        }
+
+        th {
+            background-color: #8B0000;
+            color: #EEE6A3;
+        }
+
+        tr:nth-child(even) {
+            background-color: #3e3e3e;
+        }
+
+        tr:hover {
+            background-color: #555;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            color: #EEE6A3;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+            display: inline-block;
+        }
+
+        .btn-danger {
+            background-color: #8B0000;
+        }
+
+            .btn-danger:hover {
+                background-color: #B22222;
+            }
+
+    </style>
+</head>
+<body>
+    <h1>Список блюд</h1>
+    <div class="table-container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Идентификатор</th>
+                    <th>Название</th>
+                    <th>Описание</th>
+                    <th>Информация</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var dish in Model)
+                {
+                    <tr>
+                        <td>@dish.Блюдо_Id</td>
+                        <td>@dish.Название_блюда</td>
+                        <td>@dish.Описание</td>
+                        <td>@dish.Информация</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="button-container">
+        <a href="/Home/Index" class="return-button">Домой</a>
+    </div>
+</body>
+</html>

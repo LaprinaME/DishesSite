@@ -1,186 +1,112 @@
-﻿@{
-    Layout = "_Layout";
-}
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
-    <title>Меню</title>
+    <title>Авторское меню</title>
     <style>
         body {
-            font-family: 'Anonymous Pro', monospace;
-            background: #333;
+            font-family: Arial, sans-serif;
+            background-image: url("../img/back.jpg");
+            color: #EEE6A3;
             margin: 0;
             padding: 0;
         }
 
-        h2 {
-            text-align: center;
-            color: #fff;
-            margin-top: 5px;
-        }
-
-        .welcome-message {
-            text-align: center;
-            margin-top: 30px;
-        }
-
         .menu-container {
-            width: 60%;
-            margin: 50px auto;
-            padding: 30px;
-            border-radius: 10px;
-            background: linear-gradient(to bottom right, #ff9999, #ff66cc);
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            width: 250px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+            overflow-y: auto;
         }
 
-        label {
-            display: block;
-            margin-bottom: 20px;
-            color: #fff;
-            font-size: 18px;
+        h2 {
+            color: #C41E3A;
+            text-align: center;
         }
 
-        select {
-            width: 100%;
-            padding: 12px;
-            border-radius: 8px;
+        .menu-container form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .menu-container .menu-link {
+            background-color: #293133;
+            color: #C41E3A;
             border: none;
-            background-color: #fff;
-            color: #333;
-            font-size: 16px;
-            margin-bottom: 20px;
-        }
-
-        button {
-            display: block;
-            width: 100%;
             padding: 10px;
-            border: none;
+            margin: 5px 0;
             border-radius: 5px;
-            background-color: #333;
-            color: #fff;
             cursor: pointer;
             transition: background-color 0.3s ease;
+            text-decoration: none;
+            text-align: center;
+            display: block;
         }
 
-            button:hover {
+            .menu-container .menu-link:hover {
                 background-color: #555;
             }
 
+        .menu-container label {
+            color: #EEE6A3;
+            margin-bottom: 10px;
+            display: block;
+        }
+
         .button-container {
-            text-align: center;
             margin-top: 20px;
         }
 
         .return-button {
-            padding: 10px 20px;
-            background-color: #333;
+            background-color: #C41E3A;
             color: #fff;
             border: none;
+            padding: 10px;
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s ease;
+            text-decoration: none;
+            text-align: center;
+            display: block;
+            text-transform: uppercase;
         }
 
             .return-button:hover {
-                background-color: #555;
+                background-color: #990024;
             }
-
-        p {
-            text-align: center;
-            color: #FFA8C6;
-        }
-
-        /* Стили для якорей */
-        .anchor {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, rgba(255, 192, 203, 0.7), rgba(255, 215, 0, 0.7), rgba(144, 238, 144, 0.7), rgba(135, 206, 250, 0.7), rgba(147, 112, 219, 0.7), rgba(255, 160, 122, 0.7), rgba(250, 128, 114, 0.7));
-            color: #fff;
-            border: none;
-            border-radius: 50%;
-            cursor: pointer;
-            z-index: 9999;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 24px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
-            transition: background 0.3s, box-shadow 0.3s;
-        }
-
-            .anchor:hover {
-                box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2), 0 2px 4px rgba(0, 0, 0, 0.15);
-            }
-
-            .anchor:active {
-                box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2), 0 1px 2px rgba(0, 0, 0, 0.15);
-            }
-
-        .anchor-up {
-            bottom: auto;
-            top: 20px;
-        }
-
-        .anchor svg {
-            fill: #fff; /* Цвет стрелочек */
-            width: 24px;
-            height: 24px;
-        }
     </style>
 </head>
 <body>
-    <h2>Меню для сотрудников</h2>
-    <h2>Добро пожаловать, Сотрудник!</h2>
-    <p>Вам предоставлен ограниченный доступ к веб-сайту.</p>
     <div class="menu-container">
+        <h2>Для авторов рецептов и блюд</h2>
+        <h2>Функционал:</h2>
         <form method="post" action="/ChefMenu">
-            <label for="page">Выберите страницу:</label>
-            <select name="page" id="page">
-                <option value="Home/Index">Главная страница</option>
-                <option value="Recipes/Index">Рецепты</option>
-                <option value="Account/Login">Авторизация</option>
-                <option value="Account/Register">Регистрация</option>
-                <option value="Employees/Index">Список пользователей</option>
-                <option value="Organizations/Index">Список аккаунтов</option>
-                <option value="Organizations/Index">Список ролей</option>
-                <option value="Role/Index">Список ролей</option>
-                <option value="AddRecipes/Index">Добавление рецептов</option>
-                <option value="AddRating/Index">Добавление рейтинга</option>
-                <option value="AddDish/Index">Добавление блюд</option>
-                <option value="AddComment/Index">Добавление комментариев</option>
-                <option value="DeleteRecipes/Index">Удаление рецептов</option>
-                <option value="DeleteRating/Index">Удаление рейтинга</option>
-                <option value="DeleteComments/Index">Удаление комментариев</option>
-                <option value="DeleteDishes/Index">Удаление блюд</option>
-            </select>
-            <button type="submit">Перейти</button>
+            <a class="menu-link" href="/Home/Index">Главная страница</a>
+            <a class="menu-link" href="/Account/Login">Авторизация</a>
+            <a class="menu-link" href="/Account/Register">Регистрация</a>
+            <a class="menu-link" href="/Recipes/Index">Рецепты</a>
+            <a class="menu-link" href="/Dishes/Index">Блюда</a>
+            <a class="menu-link" href="/AddRecipes/Index">Добавление рецептов</a>
+            <a class="menu-link" href="/AddRating/Index">Добавление рейтинга</a>
+            <a class="menu-link" href="/AddDish/Index">Добавление блюд</a>
+            <a class="menu-link" href="/AddComment/Index">Добавление комментариев</a>
+            <a class="menu-link" href="/DeleteRecipes/Index">Удаление рецептов</a>
+            <a class="menu-link" href="/DeleteRating/Index">Удаление рейтинга</a>
+            <a class="menu-link" href="/DeleteComments/Index">Удаление комментариев</a>
+            <a class="menu-link" href="/DeleteDishes/Index">Удаление блюд</a>
         </form>
         <div class="button-container">
             <form method="get" action="/Home/Index">
-                <button type="submit" class="return-button">Вернуться на главную страницу</button>
+                <button type="submit" class="return-button">Домой</button>
             </form>
         </div>
     </div>
-    <a href="#" class="anchor anchor-up" onclick="scrollToTop()">&uarr;</a>
-    <a href="#bottom" class="anchor anchor-down" onclick="scrollToBottom()">&darr;</a>
-
-    <script>
-        function scrollToTop() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        }
-
-        function scrollToBottom() {
-            const bottom = document.getElementById('bottom');
-            bottom.scrollIntoView({ behavior: 'smooth' });
-        }
-    </script>
-    <a id="bottom"></a>
+    <div class="button-container">
+        <a href="/AdministrationMenu/Index" class="return-button">В меню</a>
+    </div>
 </body>
 </html>

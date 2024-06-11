@@ -2,7 +2,7 @@
 
 namespace DishesSite.Controllers
 {
-    public class MenuController : Controller
+    public class UserMenuController : Controller
     {
         // GET: /Menu
         [HttpGet]

@@ -109,7 +109,7 @@ namespace DishesSite.Controllers
                 if (model.RoleCode == 1)
                 {
                     // Роль администратора, перенаправление на главную страницу
-                    return RedirectToAction("Index", "Menu");
+                    return RedirectToAction("Index", "UserMenu");
                 }
                 else if (model.RoleCode == 2)
                 {

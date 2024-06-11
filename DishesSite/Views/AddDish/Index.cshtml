@@ -1,27 +1,128 @@
 ﻿@model DishesSite.ViewModels.AddDishViewModel
 
-<h1>Добавление нового блюда</h1>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Добавление нового блюда</title>
+    <style>
+        body {
+            background-image: url("../img/1.jpg");
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
 
-<form asp-controller="AddDish" asp-action="Add" method="post">
-    <div class="form-group">
-        <label asp-for="DishId"></label>
-        <input asp-for="DishId" class="form-control" />
-        <span asp-validation-for="DishId" class="text-danger"></span>
+        .container {
+            width: 50%;
+            margin: 50px auto;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #293133;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+            .form-group label {
+                display: block;
+                margin-bottom: 5px;
+                color: #293133;
+            }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #999;
+            border-radius: 5px;
+        }
+
+        .text-danger {
+            color: #C41E3A;
+            font-size: 12px;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #C41E3A;
+            color: #FFF;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 15px;
+        }
+
+            .btn:hover {
+                background-color: #A52A2A;
+            }
+
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .return-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #C41E3A;
+            color: #333;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-align: center;
+            text-decoration: none;
+        }
+
+            .return-button:hover {
+                background-color: #555;
+            }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Добавление нового блюда</h1>
+        <form asp-controller="AddDish" asp-action="Add" method="post">
+            <div class="form-group">
+                <label asp-for="DishId">Код блюда:</label>
+                <input asp-for="DishId" class="form-control" />
+                <span asp-validation-for="DishId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DishName">Название блюда:</label>
+                <input asp-for="DishName" class="form-control" />
+                <span asp-validation-for="DishName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description">Описание:</label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Information">Информация:</label>
+                <input asp-for="Information" class="form-control" />
+                <span asp-validation-for="Information" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn">Добавить блюдо</button>
+        </form>
     </div>
-    <div class="form-group">
-        <label asp-for="DishName"></label>
-        <input asp-for="DishName" class="form-control" />
-        <span asp-validation-for="DishName" class="text-danger"></span>
+    <div class="button-container">
+        <a href="/Home/Index" class="return-button">Домой</a>
     </div>
-    <div class="form-group">
-        <label asp-for="Description"></label>
-        <input asp-for="Description" class="form-control" />
-        <span asp-validation-for="Description" class="text-danger"></span>
+    <div class="button-container">
+        <a href="/AdministrationMenu/Index" class="return-button">В меню</a>
     </div>
-    <div class="form-group">
-        <label asp-for="Information"></label>
-        <input asp-for="Information" class="form-control" />
-        <span asp-validation-for="Information" class="text-danger"></span>
-    </div>
-    <button type="submit" class="btn btn-primary">Добавить блюдо</button>
-</form>
+</body>
+</html>

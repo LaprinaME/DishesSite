@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <title>Администрация</title>
+    <title>Пользовательское навигационное меню</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -82,28 +82,17 @@
 </head>
 <body>
     <div class="menu-container">
-        <h2>Меню для администраторов сайта!</h2>
+        <h2>Для пользователей</h2>
         <h2>Функционал:</h2>
-        <form method="post" action="/Home/Index">
+        <form method="post" action="/UserMenu">
             <a class="menu-link" href="/Home/Index">Главная страница</a>
+            <a class="menu-link" href="/Recipes/Index">Рецепты</a>
             <a class="menu-link" href="/Account/Login">Авторизация</a>
             <a class="menu-link" href="/Account/Register">Регистрация</a>
-            <a class="menu-link" href="/Recipes/Index">Рецепты</a>
-            <a class="menu-link" href="/Ratings/Index">Рейтинги</a>
-            <a class="menu-link" href="/Comments/Index">Комментарии</a>
-            <a class="menu-link" href="/Dishes/Index">Блюда</a>
-            <a class="menu-link" href="/Roles/Index">Роли</a>
-            <a class="menu-link" href="/AccountsList/Index">Аккаунты</a>
-            <a class="menu-link" href="/AddRecipes/Index">Добавление рецептов</a>
-            <a class="menu-link" href="/AddRating/Index">Добавление рейтинга</a>
-            <a class="menu-link" href="/AddDish/Index">Добавление блюд</a>
-            <a class="menu-link" href="/AddComment/Index">Добавление комментариев</a>
-            <a class="menu-link" href="/DeleteRecipes/Index">Удаление рецептов</a>
-            <a class="menu-link" href="/DeleteRating/Index">Удаление рейтинга</a>
-            <a class="menu-link" href="/DeleteComments/Index">Удаление комментариев</a>
-            <a class="menu-link" href="/DeleteDishes/Index">Удаление блюд</a>
-            <a class="menu-link" href="/PageDish/Index">Отзывы и статьи о блюдах</a>
-            <a class="menu-link" href="/PageRecipe/Index">Отзывы и статьи о рецептах</a>
+            <a class="menu-link" href="/Employees/Index">Список пользователей</a>
+            <a class="menu-link" href="/Organizations/Index">Список аккаунтов</a>
+            <a class="menu-link" href="/Organizations/Index">Список ролей</a>
+            <a class="menu-link" href="/Role/Index">Список ролей</a>
         </form>
         <div class="button-container">
             <form method="get" action="/Home/Index">

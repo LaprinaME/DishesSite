@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Домашняя страница";
 }
 <!DOCTYPE html>
 <html>
@@ -9,8 +9,9 @@
 </head>
 <body>
     <div class="text-container">
-        <p>Для перехода к другим разделам сайта необходимо авторизироваться или зарегистрироваться.</p>
-        <p><a href="@Url.Action("Login", "Account")">Войти</a> или <a href="@Url.Action("Register", "Account")">Зарегистрироваться</a></p>
+        <p>Добро пожаловать на кулинарный сайт! Делитесь рецептами, оставляйте отзывы, комментируйте блюда.</p>
+        <p><a href="@Url.Action("Login", "Account")">Войти</a></p>
+        <p><a href="@Url.Action("Register", "Account")">Зарегистрироваться</a></p>
 
     </div>
 </body>

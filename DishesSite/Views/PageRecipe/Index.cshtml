@@ -5,18 +5,98 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Страница рецептов</title>
     <style>
+        /* Стили для фона */
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url("../img/back.jpg"); /* Фоновое изображение */
+            background-size: cover; /* Растягиваем изображение на всю область */
+            background-repeat: no-repeat; /* Запрещаем повторение изображения */
+            background-attachment: fixed; /* Фиксируем фон */
+            color: #333; /* Цвет текста */
+            margin: 0;
+            padding: 0;
+        }
+
         /* Стили для отображения отзывов */
         .review {
             margin-bottom: 20px;
             border: 1px solid #ccc;
             padding: 10px;
             border-radius: 5px;
+            background-color: #fff; /* Цвет фона отзыва */
         }
+
         /* Стили для изображений */
         .recipe img {
             max-width: 100%;
             height: auto;
+            display: block; /* Блочный элемент */
+            margin: 0 auto; /* Выравниваем по центру */
+            border-radius: 10px; /* Закругляем углы */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Тень */
         }
+
+        /* Стили для контейнера рецептов */
+        .recipe {
+            max-width: 800px;
+            margin: 50px auto; /* Выравниваем по центру */
+            background-color: rgba(255, 255, 255, 0.9); /* Цвет фона контейнера */
+            border-radius: 10px;
+            padding: 20px; /* Внутренний отступ */
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Тень */
+        }
+
+            /* Стили для заголовков рецептов */
+            .recipe h2 {
+                color: #C41E3A; /* Цвет заголовка */
+            }
+
+        /* Стили для ввода отзыва */
+        .review-input {
+            width: 100%;
+            margin-top: 10px;
+            padding: 5px 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        /* Стили для кнопки добавления отзыва */
+        .review-button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #C41E3A; /* Цвет кнопки */
+            color: #fff; /* Цвет текста на кнопке */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease; /* Плавное изменение цвета при наведении */
+        }
+
+            .review-button:hover {
+                background-color: #990024; /* Изменяем цвет кнопки при наведении */
+            }
+
+        .button-container {
+            margin-top: 20px;
+        }
+
+        .return-button {
+            background-color: #C41E3A;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+            text-align: center;
+            display: block;
+            text-transform: uppercase;
+        }
+
+            .return-button:hover {
+                background-color: #990024;
+            }
     </style>
 </head>
 <body>
@@ -27,8 +107,8 @@
         <p>Курица, лук, морковь, картофель, лапша, соль, перец.</p>
         <img src="../img/chicken_soup.jpg" alt="Куриный суп с лапшой">
         <div id="reviews-recipe1"></div>
-        <input type="text" id="review-input-recipe1" placeholder="Оставьте ваш отзыв">
-        <button onclick="addReview('recipe1')">Добавить отзыв</button>
+        <input type="text" id="review-input-recipe1" class="review-input" placeholder="Оставьте ваш отзыв">
+        <button class="review-button" onclick="addReview('recipe1')">Добавить отзыв</button>
     </div>
 
     <div class="recipe" id="recipe2">
@@ -36,8 +116,8 @@
         <p>Говядина, лук, чеснок, панировочные сухари, яйцо, соль, перец.</p>
         <img src="../img/meatballs.jpg" alt="Мясные фрикадельки">
         <div id="reviews-recipe2"></div>
-        <input type="text" id="review-input-recipe2" placeholder="Оставьте ваш отзыв">
-        <button onclick="addReview('recipe2')">Добавить отзыв</button>
+        <input type="text" id="review-input-recipe2" class="review-input" placeholder="Оставьте ваш отзыв">
+        <button class="review-button" onclick="addReview('recipe2')">Добавить отзыв</button>
     </div>
 
     <div class="recipe" id="recipe3">
@@ -45,8 +125,8 @@
         <p>Картофель, молоко, сливочное масло, соль.</p>
         <img src="../img/mashed_potatoes.jpg" alt="Картофельное пюре">
         <div id="reviews-recipe3"></div>
-        <input type="text" id="review-input-recipe3" placeholder="Оставьте ваш отзыв">
-        <button onclick="addReview('recipe3')">Добавить отзыв</button>
+        <input type="text" id="review-input-recipe3" class="review-input" placeholder="Оставьте ваш отзыв">
+        <button class="review-button" onclick="addReview('recipe3')">Добавить отзыв</button>
     </div>
 
     <div class="recipe" id="recipe4">
@@ -54,18 +134,17 @@
         <p>Салатный лист, куриное филе, помидоры черри, сыр пармезан, сухарики, соус "Цезарь".</p>
         <img src="../img/caesar_salad.jpg" alt="Салат Цезарь">
         <div id="reviews-recipe4"></div>
-        <input type="text" id="review-input-recipe4" placeholder="Оставьте ваш отзыв">
-        <button onclick="addReview('recipe4')">Добавить отзыв</button>
+        <input type="text" id="review-input-recipe4" class="review-input" placeholder="Оставьте ваш отзыв">
+        <button class="review-button" onclick="addReview('recipe4')">Добавить отзыв</button>
     </div>
+
     <div class="recipe" id="recipe6">
         <h2>Пицца "Маргарита"</h2>
-        <p>
-            Тесто для пиццы, томатный соус, моцарелла, помидоры, базилик.
-        </p>
+        <p>Тесто для пиццы, томатный соус, моцарелла, помидоры, базилик.</p>
         <img src="../img/pizza_margherita.jpg" alt="Пицца Маргарита">
         <div id="reviews-recipe6"></div>
-        <input type="text" id="review-input-recipe6" placeholder="Оставьте ваш отзыв">
-        <button onclick="addReview('recipe6')">Добавить отзыв</button>
+        <input type="text" id="review-input-recipe6" class="review-input" placeholder="Оставьте ваш отзыв">
+        <button class="review-button" onclick="addReview('recipe6')">Добавить отзыв</button>
     </div>
 
     <div class="recipe" id="recipe7">
@@ -73,10 +152,12 @@
         <p>Яблоки, груши, бананы, апельсины, виноград, клубника, мед.</p>
         <img src="../img/fruit_salad.jpg" alt="Фруктовый салат">
         <div id="reviews-recipe7"></div>
-        <input type="text" id="review-input-recipe7" placeholder="Оставьте ваш отзыв">
-        <button onclick="addReview('recipe7')">Добавить отзыв</button>
+        <input type="text" id="review-input-recipe7" class="review-input" placeholder="Оставьте ваш отзыв">
+        <button class="review-button" onclick="addReview('recipe7')">Добавить отзыв</button>
     </div>
-
+    <div class="button-container">
+        <a href="/Home/Index" class="return-button">Домой</a>
+    </div>
     <script>
         // Функция для добавления отзыва к рецепту
         function addReview(recipeId) {

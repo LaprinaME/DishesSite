@@ -4,39 +4,108 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Детали рецепта</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0; /* Цвет фона */
+            color: #333; /* Цвет текста */
+            margin: 0;
+            padding: 0;
+        }
 
-<div>
-    <h4>Recipe</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Название_рецепта)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Название_рецепта)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Описание)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Описание)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Ингредиенты)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Ингредиенты)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Инструкции)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Инструкции)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.Рецепт_Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+        h1 {
+            text-align: center;
+            color: #C41E3A; /* Цвет заголовка */
+            padding-top: 20px; /* Добавляем отступ сверху для заголовка */
+        }
+
+        .details-container {
+            max-width: 600px;
+            margin: 20px auto; /* Выравниваем по центру */
+            background-color: #fff; /* Цвет фона контейнера */
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Тень */
+            padding: 20px; /* Внутренний отступ */
+        }
+
+        dl {
+            display: grid;
+            grid-template-columns: auto auto; /* Две колонки */
+            gap: 10px; /* Отступ между элементами */
+        }
+
+        dt, dd {
+            padding: 5px;
+        }
+
+        dt {
+            font-weight: bold;
+        }
+
+        .actions {
+            text-align: center;
+            margin-top: 20px; /* Отступ сверху для блока с действиями */
+        }
+
+        a {
+            color: #C41E3A; /* Цвет ссылок */
+            text-decoration: none;
+            margin-right: 10px; /* Отступ между ссылками */
+        }
+
+            a:hover {
+                text-decoration: underline; /* Подчеркивание при наведении */
+            }
+
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .return-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #C41E3A;
+            color: #333;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-align: center;
+            text-decoration: none;
+        }
+
+            .return-button:hover {
+                background-color: #555;
+            }
+    </style>
+</head>
+<body>
+    <h1>Детали рецепта</h1>
+    <div class="details-container">
+        <h4>Recipe</h4>
+        <hr />
+        <dl>
+            <dt>Название рецепта:</dt>
+            <dd>@Html.DisplayFor(model => model.Название_рецепта)</dd>
+            <dt>Описание:</dt>
+            <dd>@Html.DisplayFor(model => model.Описание)</dd>
+            <dt>Ингредиенты:</dt>
+            <dd>@Html.DisplayFor(model => model.Ингредиенты)</dd>
+            <dt>Инструкции:</dt>
+            <dd>@Html.DisplayFor(model => model.Инструкции)</dd>
+        </dl>
+    </div>
+    <div class="actions">
+        <a asp-action="Edit" asp-route-id="@Model?.Рецепт_Id">Редактировать</a> |
+        <a asp-action="Index">Вернуться к списку</a>
+    </div>
+    <div class="button-container">
+        <a href="/Home/Index" class="return-button">Домой</a>
+    </div>
+</body>
+</html>

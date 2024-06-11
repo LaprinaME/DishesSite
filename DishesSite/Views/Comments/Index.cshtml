@@ -1,25 +1,80 @@
 ﻿@model IEnumerable<DishesSite.Models.Comment>
 
-<h1>Список комментариев</h1>
-
-<table class="table">
-    <thead>
-        <tr>
-            <th>Идентификатор</th>
-            <th>Автор</th>
-            <th>Текст комментария</th>
-            <th>Идентификатор рецепта</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var comment in Model)
-        {
-            <tr>
-                <td>@comment.Комментарий_Id</td>
-                <td>@comment.Автор</td>
-                <td>@comment.Текст_комментария</td>
-                <td>@comment.Рецепт_Id</td>
-            </tr>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Список комментариев</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url("../img/back.jpg");
+            color: #EEE6A3;
+            margin: 0;
+            padding: 0;
         }
-    </tbody>
-</table>
+
+        h1 {
+            text-align: center;
+            color: #EEE6A3;
+            padding-top: 50px; /* Добавляем отступ сверху для заголовка */
+        }
+
+        .table-container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: rgba(255, 255, 255, 0.8); /* Добавляем непрозрачный белый фон */
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+            border-bottom: 1px solid #EEE6A3; /* Цвет границ */
+            text-align: left;
+        }
+
+        th {
+            background-color: #C41E3A; /* Цвет фона заголовков */
+            color: #FFF;
+        }
+
+        tr:hover {
+            background-color: rgba(255, 255, 255, 0.5); /* Полупрозрачный белый фон при наведении */
+        }
+    </style>
+</head>
+<body>
+    <h1>Список комментариев</h1>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Идентификатор</th>
+                    <th>Автор</th>
+                    <th>Текст комментария</th>
+                    <th>Идентификатор рецепта</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var comment in Model)
+                {
+                    <tr>
+                        <td>@comment.Комментарий_Id</td>
+                        <td>@comment.Автор</td>
+                        <td>@comment.Текст_комментария</td>
+                        <td>@comment.Рецепт_Id</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="button-container">
+        <a href="/Home/Index" class="return-button">Домой</a>
+    </div>
+</body>
+</html>
