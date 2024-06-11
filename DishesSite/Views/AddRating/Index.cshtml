@@ -1,0 +1,27 @@
+﻿@model DishesSite.ViewModels.AddRatingViewModel
+
+<h1>Добавление нового рейтинга</h1>
+
+<form asp-controller="AddRating" asp-action="Add" method="post">
+    <div class="form-group">
+        <label asp-for="RatingId"></label>
+        <input asp-for="RatingId" class="form-control" />
+        <span asp-validation-for="RatingId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="AverageRating"></label>
+        <input asp-for="AverageRating" class="form-control" />
+        <span asp-validation-for="AverageRating" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="NumberOfRatings"></label>
+        <input asp-for="NumberOfRatings" class="form-control" />
+        <span asp-validation-for="NumberOfRatings" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="RecipeId"></label>
+        <input asp-for="RecipeId" class="form-control" />
+        <span asp-validation-for="RecipeId" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Добавить рейтинг</button>
+</form>

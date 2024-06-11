@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DishesSite.Models
 {
@@ -10,5 +11,10 @@ namespace DishesSite.Models
         public decimal Средний_рейтинг { get; set; }
 
         public int Количество_оценок { get; set; }
+
+        // Внешний ключ на таблицу Рецепты
+        [ForeignKey("Recipe")]
+        public int Рецепт_Id { get; set; }
+        public Recipe Recipe { get; set; }
     }
 }

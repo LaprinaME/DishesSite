@@ -1,0 +1,32 @@
+﻿@model IEnumerable<DishesSite.ViewModels.DeleteCommentsViewModel>
+
+<h1>Список комментариев</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Идентификатор</th>
+            <th>Идентификатор рецепта</th>
+            <th>Автор</th>
+            <th>Текст комментария</th>
+            <th>Действия</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var comment in Model)
+        {
+            <tr>
+                <td>@comment.Комментарий_Id</td>
+                <td>@comment.Рецепт_Id</td>
+                <td>@comment.Автор</td>
+                <td>@comment.Текст_комментария</td>
+                <td>
+                    <form asp-controller="DeleteComments" asp-action="Delete" method="post">
+                        <input type="hidden" name="Комментарий_Id" value="@comment.Комментарий_Id" />
+                        <button type="submit" class="btn btn-danger">Удалить</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
