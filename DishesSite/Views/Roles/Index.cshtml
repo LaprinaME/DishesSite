@@ -1,0 +1,21 @@
+﻿@model IEnumerable<DishesSite.Models.Roles>
+
+<h1>Список ролей</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Код роли</th>
+            <th>Название роли</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var role in Model)
+        {
+            <tr>
+                <td>@role.Код_роли</td>
+                <td>@role.Название_роли</td>
+            </tr>
+        }
+    </tbody>
+</table>

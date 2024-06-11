@@ -1,7 +1,7 @@
 ﻿body {
     font-family: 'Anonymous Pro', monospace;
     position: relative;
-    background-image: url("../images/background.jpg");
+    background-image: url("../img/background.jpg");
     height: 100vh; /* Высота контейнера */
     background-attachment: fixed;
     background-position: center;

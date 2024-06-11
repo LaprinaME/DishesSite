@@ -1,0 +1,119 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Страница рецептов</title>
+    <style>
+        /* Стили для отображения отзывов */
+        .review {
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        /* Стили для изображений */
+        .recipe img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Рецепты блюд</h1>
+
+    <div class="recipe" id="recipe1">
+        <h2>Куриный суп с лапшой</h2>
+        <p>Курица, лук, морковь, картофель, лапша, соль, перец.</p>
+        <img src="../img/chicken_soup.jpg" alt="Куриный суп с лапшой">
+        <div id="reviews-recipe1"></div>
+        <input type="text" id="review-input-recipe1" placeholder="Оставьте ваш отзыв">
+        <button onclick="addReview('recipe1')">Добавить отзыв</button>
+    </div>
+
+    <div class="recipe" id="recipe2">
+        <h2>Мясные фрикадельки</h2>
+        <p>Говядина, лук, чеснок, панировочные сухари, яйцо, соль, перец.</p>
+        <img src="../img/meatballs.jpg" alt="Мясные фрикадельки">
+        <div id="reviews-recipe2"></div>
+        <input type="text" id="review-input-recipe2" placeholder="Оставьте ваш отзыв">
+        <button onclick="addReview('recipe2')">Добавить отзыв</button>
+    </div>
+
+    <div class="recipe" id="recipe3">
+        <h2>Картофельное пюре</h2>
+        <p>Картофель, молоко, сливочное масло, соль.</p>
+        <img src="../img/mashed_potatoes.jpg" alt="Картофельное пюре">
+        <div id="reviews-recipe3"></div>
+        <input type="text" id="review-input-recipe3" placeholder="Оставьте ваш отзыв">
+        <button onclick="addReview('recipe3')">Добавить отзыв</button>
+    </div>
+
+    <div class="recipe" id="recipe4">
+        <h2>Салат "Цезарь"</h2>
+        <p>Салатный лист, куриное филе, помидоры черри, сыр пармезан, сухарики, соус "Цезарь".</p>
+        <img src="../img/caesar_salad.jpg" alt="Салат Цезарь">
+        <div id="reviews-recipe4"></div>
+        <input type="text" id="review-input-recipe4" placeholder="Оставьте ваш отзыв">
+        <button onclick="addReview('recipe4')">Добавить отзыв</button>
+    </div>
+    <div class="recipe" id="recipe6">
+        <h2>Пицца "Маргарита"</h2>
+        <p>
+            Тесто для пиццы, томатный соус, моцарелла, помидоры, базилик.
+        </p>
+        <img src="../img/pizza_margherita.jpg" alt="Пицца Маргарита">
+        <div id="reviews-recipe6"></div>
+        <input type="text" id="review-input-recipe6" placeholder="Оставьте ваш отзыв">
+        <button onclick="addReview('recipe6')">Добавить отзыв</button>
+    </div>
+
+    <div class="recipe" id="recipe7">
+        <h2>Фруктовый салат</h2>
+        <p>Яблоки, груши, бананы, апельсины, виноград, клубника, мед.</p>
+        <img src="../img/fruit_salad.jpg" alt="Фруктовый салат">
+        <div id="reviews-recipe7"></div>
+        <input type="text" id="review-input-recipe7" placeholder="Оставьте ваш отзыв">
+        <button onclick="addReview('recipe7')">Добавить отзыв</button>
+    </div>
+
+    <script>
+        // Функция для добавления отзыва к рецепту
+        function addReview(recipeId) {
+            var input = document.getElementById('review-input-' + recipeId);
+            var reviewText = input.value;
+            var reviewSection = document.getElementById('reviews-' + recipeId);
+            var reviewDiv = document.createElement('div');
+            reviewDiv.className = 'review';
+            reviewDiv.textContent = reviewText;
+            reviewSection.appendChild(reviewDiv);
+            input.value = '';
+
+            // Сохраняем отзыв в локальное хранилище
+            var reviews = JSON.parse(localStorage.getItem('reviews')) || {};
+            if (!reviews[recipeId]) {
+                reviews[recipeId] = [];
+            }
+            reviews[recipeId].push(reviewText);
+            localStorage.setItem('reviews', JSON.stringify(reviews));
+        }
+
+        // Функция для загрузки отзывов из локального хранилища
+        function loadReviews() {
+            var reviews = JSON.parse(localStorage.getItem('reviews')) || {};
+            for (var recipeId in reviews) {
+                var reviewSection = document.getElementById('reviews-' + recipeId);
+                reviews[recipeId].forEach(function (reviewText) {
+                    var reviewDiv = document.createElement('div');
+                    reviewDiv.className = 'review';
+                    reviewDiv.textContent = reviewText;
+                    reviewSection.appendChild(reviewDiv);
+                });
+            }
+        }
+
+        // Загружаем отзывы при загрузке страницы
+        window.onload = loadReviews;
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+﻿@model IEnumerable<DishesSite.Models.Comment>
+
+<h1>Список комментариев</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Идентификатор</th>
+            <th>Автор</th>
+            <th>Текст комментария</th>
+            <th>Идентификатор рецепта</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var comment in Model)
+        {
+            <tr>
+                <td>@comment.Комментарий_Id</td>
+                <td>@comment.Автор</td>
+                <td>@comment.Текст_комментария</td>
+                <td>@comment.Рецепт_Id</td>
+            </tr>
+        }
+    </tbody>
+</table>

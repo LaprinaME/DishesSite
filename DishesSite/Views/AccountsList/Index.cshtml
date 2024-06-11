@@ -1,0 +1,25 @@
+﻿@model IEnumerable<DishesSite.Models.Accounts>
+
+<h1>Список аккаунтов</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Код аккаунта</th>
+            <th>Логин</th>
+            <th>Пароль</th>
+            <th>Роль</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var account in Model)
+        {
+            <tr>
+                <td>@account.Код_аккаунта</td>
+                <td>@account.Логин</td>
+                <td>@account.Пароль</td>
+                <td>@account.Роли.Название_роли</td>
+            </tr>
+        }
+    </tbody>
+</table>

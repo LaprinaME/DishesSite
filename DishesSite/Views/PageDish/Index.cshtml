@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Страница комментариев</title>
+    <style>
+        /* Стили для отображения комментариев */
+        .comment {
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        /* Стили для изображений */
+        .article img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Статьи о блюдах</h1>
+
+    <div class="article" id="article1">
+        <h2>Греческий салат</h2>
+        <p>Греческий салат - классическое блюдо средиземноморской кухни, известное своим ярким вкусом и свежими ингредиентами...</p>
+        <img src="../img/greek_salad.jpg" alt="Греческий салат">
+        <div id="comments-article1"></div>
+        <input type="text" id="comment-input-article1" placeholder="Оставьте ваш комментарий">
+        <button onclick="addComment('article1')">Добавить комментарий</button>
+    </div>
+
+    <div class="article" id="article2">
+        <h2>Паста карбонара</h2>
+        <p>Паста карбонара - одно из самых популярных итальянских блюд, которое завоевало популярность за пределами Италии благодаря своему неповторимому вкусу и простоте приготовления...</p>
+        <img src="../img/pasta_carbonara.jpg" alt="Паста карбонара">
+        <div id="comments-article2"></div>
+        <input type="text" id="comment-input-article2" placeholder="Оставьте ваш комментарий">
+        <button onclick="addComment('article2')">Добавить комментарий</button>
+    </div>
+
+    <div class="article" id="article3">
+        <h2>Суши с лососем</h2>
+        <p>Суши с лососем - изысканное японское блюдо, пользующееся популярностью во многих странах мира благодаря своему нежному вкусу и простоте приготовления...</p>
+        <img src="../img/sushi_salmon.jpg" alt="Суши с лососем">
+        <div id="comments-article3"></div>
+        <input type="text" id="comment-input-article3" placeholder="Оставьте ваш комментарий">
+        <button onclick="addComment('article3')">Добавить комментарий</button>
+    </div>
+
+    <script>
+        // Функция для добавления комментария к статье
+        function addComment(articleId) {
+            var input = document.getElementById('comment-input-' + articleId);
+            var commentText = input.value;
+            var commentSection = document.getElementById('comments-' + articleId);
+            var commentDiv = document.createElement('div');
+            commentDiv.className = 'comment';
+            commentDiv.textContent = commentText;
+            commentSection.appendChild(commentDiv);
+            input.value = '';
+
+            // Сохраняем комментарий в локальное хранилище
+            var comments = JSON.parse(localStorage.getItem('comments')) || {};
+            if (!comments[articleId]) {
+                comments[articleId] = [];
+            }
+            comments[articleId].push(commentText);
+            localStorage.setItem('comments', JSON.stringify(comments));
+        }
+
+        // Функция для загрузки комментариев из локального хранилища
+        function loadComments() {
+            var comments = JSON.parse(localStorage.getItem('comments')) || {};
+            for (var articleId in comments) {
+                var commentSection = document.getElementById('comments-' + articleId);
+                comments[articleId].forEach(function (commentText) {
+                    var commentDiv = document.createElement('div');
+                    commentDiv.className = 'comment';
+                    commentDiv.textContent = commentText;
+                    commentSection.appendChild(commentDiv);
+                });
+            }
+        }
+
+        // Загружаем комментарии при загрузке страницы
+        window.onload = loadComments;
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+﻿@model IEnumerable<DishesSite.Models.Dish>
+
+<h1>Список блюд</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Идентификатор</th>
+            <th>Название</th>
+            <th>Описание</th>
+            <th>Информация</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var dish in Model)
+        {
+            <tr>
+                <td>@dish.Блюдо_Id</td>
+                <td>@dish.Название_блюда</td>
+                <td>@dish.Описание</td>
+                <td>@dish.Информация</td>
+            </tr>
+        }
+    </tbody>
+</table>

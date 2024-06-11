@@ -1,0 +1,25 @@
+﻿@model IEnumerable<DishesSite.Models.Rating>
+
+<h1>Список рейтингов</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Идентификатор</th>
+            <th>Средний рейтинг</th>
+            <th>Количество оценок</th>
+            <th>Идентификатор рецепта</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var rating in Model)
+        {
+            <tr>
+                <td>@rating.Рейтинг_Id</td>
+                <td>@rating.Средний_рейтинг</td>
+                <td>@rating.Количество_оценок</td>
+                <td>@rating.Рецепт_Id</td>
+            </tr>
+        }
+    </tbody>
+</table>
